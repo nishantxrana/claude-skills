@@ -1,0 +1,224 @@
+# Canonical term | aliases (case-insensitive match). Used by jd_terms.py to pull searchable terms
+# out of a job description. Add lines freely; first name is what goes in the resume.
+# Cloud
+Microsoft Azure|Azure
+AWS|Amazon Web Services
+GCP|Google Cloud|Google Cloud Platform
+AKS|Azure Kubernetes Service
+EKS|Elastic Kubernetes Service
+GKE|Google Kubernetes Engine
+App Service|Azure App Service|Web Apps
+Function Apps|Azure Functions
+Logic Apps|Azure Logic Apps
+Virtual Machines|VMs|Azure VM
+Virtual Networks|VNet|VNets
+NSG|Network Security Groups
+Load Balancer|Load Balancers|Azure Load Balancer
+Application Gateway|App Gateway
+Azure Front Door|Front Door
+Azure Key Vault|Key Vault
+Azure SQL|Azure SQL Database
+Cosmos DB|Azure Cosmos DB
+Storage Accounts|Azure Storage|Blob Storage
+Azure Container Registry|ACR
+Azure Container Apps
+Entra ID|Azure AD|Azure Active Directory
+RBAC|role-based access control
+Managed Identity|Managed Identities
+Azure Policy
+Azure Monitor
+Application Insights|App Insights
+Log Analytics|KQL|Kusto
+Azure Sentinel|Microsoft Sentinel
+Azure Data Factory|ADF
+Azure Service Bus|Service Bus
+Event Grid|Azure Event Grid
+Event Hubs|Azure Event Hubs
+API Management|APIM
+Azure Bicep|Bicep
+ARM templates|ARM template|Azure Resource Manager
+Landing Zone|landing zones
+EC2
+S3
+Lambda|AWS Lambda
+CloudFormation
+CloudWatch
+IAM
+VPC
+ECS
+Route 53
+# IaC / config
+Terraform
+Infrastructure as Code|IaC
+Ansible
+Pulumi
+Packer
+Chef
+Puppet
+Helm|Helm charts
+Kustomize
+# Containers
+Docker
+Kubernetes|K8s
+OpenShift
+Containerd
+Istio|service mesh
+Linkerd
+# CI/CD
+CI/CD|continuous integration|continuous delivery|continuous deployment
+Azure DevOps|ADO|VSTS
+Azure Pipelines|YAML pipelines
+Azure Repos
+Azure Artifacts
+Azure Boards
+GitHub Actions
+GitLab CI/CD|GitLab CI|GitLab
+Jenkins
+Bamboo
+TeamCity
+CircleCI
+Argo CD|ArgoCD
+Flux|FluxCD
+GitOps
+Spinnaker
+Octopus Deploy
+SonarQube|SonarCloud
+Nexus
+JFrog Artifactory|Artifactory
+Git
+GitHub
+Bitbucket
+MSBuild
+Maven
+Gradle
+npm
+NuGet
+blue-green deployment|blue/green
+canary deployment|canary releases
+release management
+# Observability / SRE
+Prometheus
+Grafana
+ELK|Elastic Stack|Elasticsearch|Kibana|Logstash
+Datadog
+New Relic
+Splunk
+Dynatrace
+OpenTelemetry|OTel
+Jaeger
+PagerDuty
+SLO|SLOs|service level objectives
+SLA|SLAs
+SLI|SLIs
+incident management|incident response
+on-call
+root cause analysis|RCA|postmortem|post-mortem
+observability
+monitoring
+alerting
+MTTR|mean time to recovery
+DORA metrics|DORA
+high availability|HA
+disaster recovery|DR
+autoscaling|auto-scaling|HPA
+SRE|site reliability engineering
+# Security / DevSecOps
+DevSecOps
+Trivy
+Snyk
+Checkov
+tfsec
+OWASP
+SAST
+DAST
+SBOM
+cosign|Sigstore
+Defender for Cloud|Microsoft Defender
+HashiCorp Vault|Vault
+secrets management
+zero trust
+compliance
+ISO 27001
+SOC 2|SOC2
+PCI DSS
+GDPR
+vulnerability scanning|vulnerability management
+# Scripting / languages
+Bash|shell scripting|Shell
+PowerShell
+Python
+Go|Golang
+Java
+C#
+.NET|.NET Core|ASP.NET
+JavaScript
+TypeScript
+Node.js|NodeJS
+React|React.js|ReactJS
+Angular
+SQL
+YAML
+JSON
+REST APIs|REST API|RESTful
+GraphQL
+gRPC
+Linux
+Windows Server
+IIS
+Nginx
+Apache
+# Data / messaging
+PostgreSQL|Postgres
+MySQL
+SQL Server|MSSQL
+MongoDB
+Redis
+Kafka|Apache Kafka
+RabbitMQ
+# AI
+Azure OpenAI
+OpenAI
+Azure AI Foundry|AI Foundry
+Azure AI Search|Cognitive Search
+RAG|Retrieval-Augmented Generation
+LLM|LLMs|large language models
+vector embeddings|embeddings
+vector database
+LangChain
+Semantic Kernel
+MCP|Model Context Protocol
+Copilot Studio
+prompt engineering
+MLOps
+AI agents|agentic
+# Practices / process
+Agile
+Scrum
+Kanban
+Jira
+Confluence
+ServiceNow
+ITIL
+microservices
+serverless
+cloud migration|migration
+cost optimization|FinOps|cost management
+capacity planning
+performance tuning
+automation
+networking
+DNS
+TLS|SSL
+load balancing
+# Certifications (exact names searched)
+AZ-104|Azure Administrator Associate
+AZ-204|Azure Developer Associate
+AZ-305|Azure Solutions Architect Expert
+AZ-400|DevOps Engineer Expert
+AZ-500|Azure Security Engineer Associate
+AI-102|Azure AI Engineer Associate
+AZ-900|Azure Fundamentals
+CKA|Certified Kubernetes Administrator
+CKAD
+Terraform Associate
+AWS Solutions Architect

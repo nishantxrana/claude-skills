@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# resumectl - one entry point for the resume skill's scripts, on Linux, macOS and Windows (Git Bash).
+#   resumectl doctor [--install]      environment check / install plan
+#   resumectl check  <tex> [opts]     compile + ATS audit (resume_check.py)
+#   resumectl diff   <a> <b>          pixel diff of two .tex/.pdf
+#   resumectl jd     <jd.txt> [opts]  JD term extraction
+#   resumectl snap   save|list|diff|restore ...
+#   resumectl ws     show|init|deliver ...
+#   resumectl py                      print the Python interpreter it uses
+# Finds a working Python 3.8+ (skips the Windows Store stub), preferring the skill's private venv.
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+S="$HERE/../skills/resume/scripts"
+
+to_unix() { if command -v cygpath >/dev/null 2>&1; then cygpath -u "$1"; else printf '%s' "$1"; fi; }
+
+works() { "$@" -c 'import sys; sys.exit(0 if sys.version_info >= (3, 8) else 1)' >/dev/null 2>&1; }
+
+find_py() {
+  local venv
+  if [ -n "${LOCALAPPDATA:-}" ]; then
+    venv="$(to_unix "$LOCALAPPDATA")/resume-skill/venv/Scripts/python.exe"
+  else
+    venv="${XDG_DATA_HOME:-$HOME/.local/share}/resume-skill/venv/bin/python"
+  fi
+  if [ -x "$venv" ] && works "$venv"; then echo "$venv"; return 0; fi
+  for c in python3 python; do
+    if command -v "$c" >/dev/null 2>&1 && works "$c"; then command -v "$c"; return 0; fi
+  done
+  if command -v py >/dev/null 2>&1 && works py -3; then echo "py -3"; return 0; fi
+  if [ -n "${LOCALAPPDATA:-}" ]; then
+    local g
+    for g in "$(to_unix "$LOCALAPPDATA")"/Programs/Python/Python3*/python.exe; do
+      [ -x "$g" ] && works "$g" && { echo "$g"; return 0; }
+    done
+  fi
+  for g in /opt/homebrew/bin/python3 /usr/local/bin/python3 /usr/bin/python3; do
+    [ -x "$g" ] && works "$g" && { echo "$g"; return 0; }
+  done
+  return 1
+}
+
+PY="$(find_py)" || {
+  echo "No working Python 3.8+ found. Install it, then re-run:" >&2
+  case "$(uname -s)" in
+    MINGW*|MSYS*|CYGWIN*) echo "  winget install -e --id Python.Python.3.13   (or: scoop install python)" >&2 ;;
+    Darwin) echo "  brew install python" >&2 ;;
+    *) echo "  sudo apt-get install -y python3 python3-pip python3-venv   (or your distro's equivalent)" >&2 ;;
+  esac
+  exit 3
+}
+export PYTHONIOENCODING=utf-8 PYTHONUTF8=1
+
+cmd="${1:-help}"; shift || true
+case "$cmd" in
+  doctor) exec $PY "$S/env_check.py" "$@" ;;
+  check)  exec $PY "$S/resume_check.py" "$@" ;;
+  diff)   exec $PY "$S/pixel_diff.py" "$@" ;;
+  jd)     exec $PY "$S/jd_terms.py" "$@" ;;
+  snap)   exec $PY "$S/snap.py" "$@" ;;
+  ws)     exec $PY "$S/workspace.py" "$@" ;;
+  py)     echo "$PY" ;;
+  *) sed -n '2,10p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//' ;;
+esac

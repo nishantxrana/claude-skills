@@ -1,0 +1,12 @@
+{
+  "name": "nishant-skills",
+  "owner": { "name": "Nishant Rana" },
+  "description": "Personal Claude Code plugins.",
+  "plugins": [
+    {
+      "name": "resume",
+      "source": "./plugins/resume",
+      "description": "One-page LaTeX resume builder with ATS checks, JD tailoring and slash commands."
+    }
+  ]
+}

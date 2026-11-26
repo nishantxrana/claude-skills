@@ -1,0 +1,7 @@
+{
+  "name": "resume",
+  "version": "3.0.0",
+  "description": "Build, tailor and verify a strictly one-page LaTeX resume without changing its look: cross-platform setup (Windows, Linux, macOS, claude.ai), local ATS parse audit with per-ATS checks, ResumeNext score loop, fact ledger, achievement mining, interview claim prep, and edit history. Commands: /resume:setup, /resume:update, /resume:tailor, /resume:ats, /resume:check, /resume:review, /resume:mine, /resume:prep, /resume:history.",
+  "author": { "name": "Nishant Rana" },
+  "keywords": ["resume", "cv", "latex", "ats", "job-description"]
+}
